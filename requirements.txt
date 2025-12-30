@@ -1,0 +1,23 @@
+# Balanz Portfolio Tracker - Dependencies
+
+# HTTP Client
+httpx>=0.25.0
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+
+# Data Validation
+pydantic>=2.5.0
+
+# Data Processing
+pandas>=2.1.0
+
+# Desktop Application
+pywebview>=4.4.0
+
+# Future Dependencies (Phase 3)
+# yfinance>=0.2.0          # Yahoo Finance data
+
+# Development Dependencies
+# pyinstaller>=6.0.0       # For creating executables

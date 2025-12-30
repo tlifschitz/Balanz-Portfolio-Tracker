@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanz Portfolio Tracker</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="login-screen" class="screen active">
+            <div class="login-container">
+                <div class="logo">
+                    <h1>Balanz Portfolio Tracker</h1>
+                    <p class="subtitle">Gestiona tu cartera de inversiones</p>
+                </div>
+
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuario</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                            autocomplete="username"
+                            placeholder="Tu usuario de Balanz"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                            autocomplete="current-password"
+                            placeholder="Tu contraseña"
+                        >
+                    </div>
+
+                    <div id="error-message" class="error-message hidden"></div>
+
+                    <button type="submit" class="btn btn-primary" id="login-btn">
+                        <span class="btn-text">Iniciar Sesión</span>
+                        <span class="btn-loader hidden">Iniciando...</span>
+                    </button>
+
+                    <div class="security-note">
+                        <p>
+                            <strong>Nota de seguridad:</strong> Tus credenciales se usan solo para autenticación
+                            y nunca se almacenan en disco. Todos los datos se mantienen en memoria durante la sesión.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Screen -->
+        <div id="dashboard-screen" class="screen">
+            <header class="header">
+                <div class="header-left">
+                    <h1>Balanz Portfolio Tracker</h1>
+                </div>
+                <div class="header-right">
+                    <span id="user-name" class="user-name"></span>
+                    <button id="logout-btn" class="btn btn-secondary">Cerrar Sesión</button>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <div class="welcome-message">
+                    <h2>Bienvenido a tu Portfolio Tracker</h2>
+                    <p>Esta es la versión MVP de la aplicación. Las funcionalidades de visualización de cartera se implementarán próximamente.</p>
+
+                    <div class="status-panel">
+                        <h3>Estado de la Sesión</h3>
+                        <p>Autenticado correctamente con la API de Balanz.</p>
+                        <p>Tu token de acceso está almacenado en memoria y será eliminado al cerrar la aplicación.</p>
+                    </div>
+
+                    <div class="next-steps">
+                        <h3>Próximas Funcionalidades (MVP)</h3>
+                        <ul>
+                            <li>Dashboard de resumen de cartera</li>
+                            <li>Gráfico de distribución de activos</li>
+                            <li>Tabla de tenencias con filtros</li>
+                            <li>Vista de rendimiento histórico</li>
+                            <li>Calendario de flujos de fondos proyectados</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

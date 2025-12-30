@@ -1,0 +1,345 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #00a99d;
+    --primary-hover: #008c82;
+    --secondary-color: #6c757d;
+    --secondary-hover: #5a6268;
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --border-color: #dee2e6;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Screen Management */
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.screen.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Login Screen */
+#login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00a99d 0%, #00c9b7 100%);
+    overflow-y: auto;
+}
+
+.login-container {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    padding: 48px;
+    width: 100%;
+    max-width: 480px;
+    margin: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 169, 157, 0.1);
+}
+
+.error-message {
+    padding: 12px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    color: var(--error-color);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.error-message.hidden {
+    display: none;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+}
+
+.btn-loader.hidden,
+.btn-text.hidden {
+    display: none;
+}
+
+.security-note {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.security-note p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.security-note strong {
+    color: var(--text-primary);
+}
+
+/* Dashboard Screen */
+#dashboard-screen {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    overflow: hidden;
+}
+
+.header {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-name {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.main-content {
+    flex: 1;
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.welcome-message {
+    background: var(--card-bg);
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.welcome-message h2 {
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-size: 28px;
+}
+
+.welcome-message > p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    font-size: 16px;
+}
+
+.status-panel {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.status-panel h3 {
+    color: #155724;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.status-panel p {
+    color: #155724;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.status-panel p:last-child {
+    margin-bottom: 0;
+}
+
+.next-steps {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.next-steps h3 {
+    color: #856404;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.next-steps ul {
+    list-style-position: inside;
+    color: #856404;
+    font-size: 14px;
+}
+
+.next-steps li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 32px 24px;
+    }
+
+    .header {
+        padding: 16px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .main-content {
+        padding: 16px;
+    }
+
+    .welcome-message {
+        padding: 24px;
+    }
+}
