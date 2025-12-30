@@ -19,5 +19,5 @@ pywebview>=4.4.0
 # Future Dependencies (Phase 3)
 # yfinance>=0.2.0          # Yahoo Finance data
 
-# Development Dependencies
-# pyinstaller>=6.0.0       # For creating executables
+# Packaging & Distribution
+pyinstaller>=6.0.0       # For creating executables

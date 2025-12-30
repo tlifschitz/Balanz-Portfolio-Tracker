@@ -26,41 +26,69 @@ A desktop application for Balanz brokerage clients to visualize portfolio perfor
 
 ## Installation
 
-### Prerequisites
+### Option 1: Download Pre-built Binaries (Recommended)
+
+Download the latest release for your operating system from the [Releases](../../releases) page:
+
+- **macOS**: Download `BalanzTracker-X.X.X-macOS.dmg`
+- **Windows**: Download `BalanzTracker-X.X.X-windows-x64.zip`
+- **Linux**: Download `BalanzTracker-X.X.X-linux-x64.tar.gz`
+
+See the [Distribution Guide](DISTRIBUTION.md) for detailed installation instructions.
+
+### Option 2: Run from Source
+
+#### Prerequisites
 - Python 3.9 or higher
 - pip (Python package installer)
 
-### Setup
+#### Setup
 
 1. Clone this repository:
 ```bash
 cd "Balanz Portfolio Tracker"
 ```
 
-2. Create a virtual environment (recommended):
-```bash
-python -m venv venv
-```
-
-3. Activate the virtual environment:
+2. Run the setup script:
 ```bash
 # macOS/Linux
-source venv/bin/activate
+./setup.sh
 
 # Windows
-venv\Scripts\activate
+setup.bat
 ```
 
-4. Install dependencies:
+Or manually:
+
 ```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate  # macOS/Linux
+# or
+venv\Scripts\activate  # Windows
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 ## Running the Application
 
-From the project root directory:
+### From Pre-built Binary
+
+- **macOS**: Open `BalanzTracker.app` from Applications
+- **Windows**: Run `BalanzTracker.exe` from the extracted folder
+- **Linux**: Run `./BalanzTracker` from the extracted folder
+
+### From Source
 
 ```bash
+# Using the run script (recommended)
+./run.sh  # macOS/Linux
+run.bat   # Windows
+
+# Or directly with Python
 python app/main.py
 ```
 
@@ -106,6 +134,30 @@ app/
 - **Data Validation**: Pydantic
 - **Desktop UI**: pywebview (native window wrapper)
 - **Frontend**: HTML/CSS/JavaScript
+
+## Building & Distribution
+
+To create standalone executables for distribution:
+
+```bash
+# Build for your current platform
+./build.sh  # macOS/Linux
+build.bat   # Windows
+
+# macOS only: Create DMG installer
+./create-dmg.sh
+```
+
+For detailed build instructions, cross-platform builds, and distribution guidelines, see the [Distribution Guide](DISTRIBUTION.md).
+
+### Automated Releases
+
+The project includes a GitHub Actions workflow that automatically builds releases for all platforms when you push a version tag:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
 
 ## Development
 
